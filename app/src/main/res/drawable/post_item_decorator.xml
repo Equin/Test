@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ic_arrow"
+        android:id="@+id/additional_image"
+        android:gravity="center_horizontal"
+        android:height="21dp"
+        android:width="14dp"/>
+</layer-list>

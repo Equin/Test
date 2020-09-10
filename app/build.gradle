@@ -1,0 +1,190 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.example.myapplication"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven {
+            url "https://maven.google.com"
+        }
+
+        maven {
+            url "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases"
+        }
+
+    }
+}
+
+final ANDROID_SUPPORT_VERSION = '28.0.0'
+final LOMBOK_VERSION = '1.16.20'
+final MULTIDEX_VERSION = '1.0.3'
+final SPARKLEMOTION_VERSION = '1.0.1'
+final STREAM_VERSION = '1.1.9'
+final VIEW_PAGER_INDICATOR_VERSION = '2.4.1'
+final CONSTRAINT_LAYOUT = '2.0.0-beta2'
+
+dependencies {
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+    annotationProcessor "org.projectlombok:lombok:$LOMBOK_VERSION"
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+
+
+    configurations.all {
+        exclude group: 'com.facebook.yoga', module: 'yoga'
+//   exclude group: 'com.facebook.infer.annotation', module: 'infer-annotation'
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    }
+
+
+
+    implementation 'androidx.navigation:navigation-fragment:2.1.0'
+    implementation 'androidx.navigation:navigation-ui:2.1.0'
+
+
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "com.github.adityagohad:HorizontalPicker:1.0.1"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.exifinterface:exifinterface:1.2.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.media:media:1.1.0'
+    implementation 'androidx.fragment:fragment:1.2.5'
+
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.browser:browser:1.2.0'
+    implementation 'androidx.webkit:webkit:1.2.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
+    implementation "com.annimon:stream:$STREAM_VERSION"
+    implementation('com.mikepenz:materialdrawer:5.9.5@aar') {
+        transitive = true
+    }
+    implementation "com.github.JakeWharton:ViewPagerIndicator:$VIEW_PAGER_INDICATOR_VERSION@aar"
+    implementation "com.ifttt:sparklemotion:$SPARKLEMOTION_VERSION"
+
+    implementation 'info.hoang8f:android-segmented:1.0.6'
+    implementation 'com.ncorti:slidetoact:0.6.0'
+    implementation 'com.afollestad:sectioned-recyclerview:0.5.0'
+    implementation 'com.anjlab.android.iab.v3:library:1.0.44'
+    implementation 'com.flurry.android:analytics:6.2.0'
+    //implementation 'com.github.adrielcafe:AndroidAudioRecorder:0.3.0'
+    //implementation 'com.veinhorn.scrollgalleryview:library:1.0.5'
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    implementation 'com.github.johnpersano:supertoasts:2.0'
+
+    implementation 'com.zhihu.android:matisse:0.5.3-beta3'
+    implementation 'com.google.guava:guava:24.1-jre'
+
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.10.6'
+    implementation 'com.iceteck.silicompressorr:silicompressor:2.1'
+    implementation 'com.loopj.android:android-async-http:1.4.9'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.github.dewinjm:monthyear-picker:1.0.1'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.4.7'
+    implementation 'commons-io:commons-io:2.5'
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'info.hoang8f:android-segmented:1.0.6'
+    implementation 'org.igniterealtime.smack:smack-android-extensions:4.3.0'
+    implementation 'org.igniterealtime.smack:smack-tcp:4.3.0'
+    implementation 'pub.devrel:easypermissions:0.4.2'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.16'
+
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
+
+    implementation 'co.lujun:androidtagview:1.1.7'
+
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-wallet:18.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'com.google.android.gms:play-services-places:17.0.0'
+    implementation 'com.google.android.gms:play-services-gcm:17.0.0'
+    implementation 'com.google.firebase:firebase-core:17.4.4'
+
+    implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
+    implementation 'com.google.firebase:firebase-ml-vision-barcode-model:16.1.1'
+
+    implementation 'com.google.android:flexbox:1.0.0'
+
+    implementation 'com.pixplicity.generate:library:1.3.0'
+
+    implementation 'com.google.firebase:firebase-messaging:20.2.3'
+
+    implementation "org.projectlombok:lombok:$LOMBOK_VERSION"
+
+    implementation 'com.brandongogetap:stickyheaders:0.5.1'
+
+    implementation 'com.otaliastudios:cameraview:1.5.1'
+
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+
+    implementation 'com.daimajia.slider:library:1.1.5@aar'
+
+    implementation "me.leolin:ShortcutBadger:1.1.22@aar"
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    implementation group: 'joda-time', name: 'joda-time', version: '2.10.2'
+
+    implementation 'com.baoyz.actionsheet:library:1.1.7'
+
+    implementation 'com.facebook.litho:litho-core:0.33.0'
+    implementation 'com.facebook.litho:litho-widget:0.33.0'
+    implementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+
+
+    annotationProcessor 'com.facebook.litho:litho-processor:0.33.0'
+
+    // SoLoader
+    implementation 'com.facebook.soloader:soloader:0.8.0'
+
+    // For integration with Fresco
+    implementation 'com.facebook.litho:litho-fresco:0.33.0'
+    // For testing
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.quill.android:delta:1.0.2'
+    implementation 'net.cachapa.expandablelayout:expandablelayout:2.9.2'
+
+    testImplementation 'com.facebook.litho:litho-testing:0.33.0'
+
+    implementation 'com.facebook.litho:litho-sections-core:0.33.0'
+
+    implementation 'com.facebook.litho:litho-sections-widget:0.33.0'
+    compileOnly 'com.facebook.litho:litho-sections-annotations:0.33.0'
+    annotationProcessor 'com.facebook.litho:litho-sections-processor:0.33.0'
+    implementation 'com.thoughtbot:expandablerecyclerview:1.3'
+
+    implementation 'com.google.guava:guava:27.0.1-android'
+    implementation 'com.github.zerobranch:SwipeLayout:1.3.1'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'org.jitsi.react:jitsi-meet-sdk:2.9.3'
+
+}
+configurations {
+    all*.exclude group: 'xpp3', module: 'xpp3'
+}
